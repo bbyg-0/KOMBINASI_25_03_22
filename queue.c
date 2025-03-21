@@ -41,7 +41,8 @@ void enqueue (address *p, address *pNew){
 
 }
 
-void dequeue (address *p){
+void dequeue (address *p, unsigned short *x){
+	if(*x <= 0) return;
 	if(isEmpty(*p)) return;
 	
 	address temp = getNext(*p);
@@ -49,5 +50,14 @@ void dequeue (address *p){
 	(*p) = temp;
 
 	if(isEmpty(*p)) printf("List telah kosong");
+	*x -=1;
+}
 
+int NbElement(address p){
+	int result = 0;
+	while(!isEmpty(p)){
+		result++;
+		p = p->next;
+	}
+	return result;
 }

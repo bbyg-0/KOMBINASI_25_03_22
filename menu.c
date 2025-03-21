@@ -62,3 +62,15 @@ void mainMenu(){
 	printf("\n0.Keluar");
 	printf("\npilihan:");
 }
+
+void menuEnqueue(int x, int y){
+	printf("Antrian 1 tersisa %d antrian\n", x);
+	printf("Antrian 2 tersisa %d antrian\n", y);
+
+	printf("\npilihan:");
+}
+
+void pengumumanQ(int x, int y){
+	printf("Nomor antrian %d untuk line 1\n", x);
+	printf("Nomor antrian %d untuk line 2\n", y);
+}

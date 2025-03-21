@@ -7,8 +7,10 @@ bool isEmpty (address p){
 }
 void DeAlokasi (address *p){
 	if(p == NULL || (*p) == NULL) return;
-	
+
+	free((*p)->Name);	
 	free(*p);
+	(*p)->Name = NULL;
 	(*p) = NULL;
 }
 

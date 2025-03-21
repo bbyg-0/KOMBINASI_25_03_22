@@ -11,5 +11,9 @@ void clearInput_buffer();
 
 void mainMenu();
 
+void menuEnqueue(int x, int y);
+
+void pengumumanQ(int x, int y);
+
 #endif
 

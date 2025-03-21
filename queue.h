@@ -25,6 +25,8 @@ void Show_List (address p);
 
 void enqueue (address *p, address *pNew);
 
-void dequeue (address *p);
+void dequeue (address *p, unsigned short *x);
+
+int NbElement(address p);
 
 #endif
