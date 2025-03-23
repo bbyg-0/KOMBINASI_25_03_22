@@ -4,62 +4,27 @@
 #include <ctype.h>
 
 #include "menu.h"
-
-void clearScreen() {
-	#ifdef _WIN32
-		system("cls");
-	#else
-		system("clear");
-	#endif
-}
-
-void secureInputString(char *buffer, int size) {
-	if (fgets(buffer, size, stdin) == NULL) {
-		printf("Error membaca input!\n");
-		exit(EXIT_FAILURE);
-	}
-    
-	size_t len = strlen(buffer);
-	if (buffer[len - 1] == '\n') {
-		buffer[len - 1] = '\0';
-	} else {
-		clearInput_buffer();
-	}
-}
-
-int secureInputInt() {
-	char buffer[5];
-	int value;
-	while (1) {
-		secureInputString(buffer, sizeof(buffer));
-
-		int valid = 1;
-		for (size_t i = 0; buffer[i] != '\0'; i++) {
-			if (!isdigit(buffer[i])) {
-				valid = 0;
-				break;
-			}
-		}
-	
-		if (valid) {
-			value = atoi(buffer);
-			return value;
-		} else {
-			printf("Input tidak valid! Masukkan angka: ");
-		}
-	}
-}
-
-void clearInput_buffer() {
-	int c;
-	while ((c = getchar()) != '\n' && c != EOF);
-}
+#include "common.h"
+#include "nrllBuku.h"
+#include "stackRiwayat.h"
+#include "queuePelanggan.h"
 
 void mainMenu(){
-	printf("1.Masuk antrian\n");
-	printf("2.Memproses antrian\n");
-	printf("3.Memperlihatkan antrian\n");
-	printf("\n0.Keluar");
+	printf("=============================\n");
+	printf("|| === BABA BOOK STORE === ||\n");
+	printf("=============================\n");
+	printf("1.Tambah Antrian\n");
+	printf("2.Proses Antrian\n");
+	printf("3.Perlihatkan Antrian\n\n");
+	
+	printf("4.Tambah Buku\n");
+	printf("5.Perlihatkan Stok Buku\n\n");
+	
+	printf("6.Perlihatkan Riwayat Penjualan\n");
+	printf("7.Hapus Riwayat Penjualan Terbaru\n");
+	printf("8.Hapus Semua Riwayat Penjualan\n\n");
+	
+	printf("0.Keluar");
 	printf("\npilihan:");
 }
 
@@ -70,7 +35,3 @@ void menuEnqueue(int x, int y){
 	printf("\npilihan:");
 }
 
-void pengumumanQ(int x, int y){
-	printf("Nomor antrian %d untuk line 1\n", x);
-	printf("Nomor antrian %d untuk line 2\n", y);
-}
